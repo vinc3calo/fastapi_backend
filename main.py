@@ -6,14 +6,13 @@ app = FastAPI()
 
 books = []  # in-memory database
 
-class Post(BaseModel):
+class Book(BaseModel):
     title: str
-    content: str
-    created_at: str
+    author: str
 
 @app.get("/")
 def read_root():
-    return {"message": "Welcome to the Post API!"}
+    return {"message": "Welcome to the Book API!"}
 
 @app.get("/books", response_model=List[Book])
 def get_books():
